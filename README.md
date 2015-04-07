@@ -1,41 +1,40 @@
- ================================================================================
-/					README					/
-================================================================================ 
+Ising Project
+=============
+
 This readme contains instructions for compiling my program, in addition to
 passing in instructions to the program via text files, and importing and
 exporting images via use of the Magick++ library, which I do not provide owing to
 its size. I do provide images of sample spin configurations for this reason.
 
- ================================================================================
-/1. Getting started								/
-================================================================================ 
+
+Getting Started
+===============
+
 Please check that the following files are present:
 
- *	IsingModel.cc
- *	IsingMatrix.h
- *	IsingCell.h
- *	parser.h
- *	simulator.h
+*	IsingModel.cc
+*	IsingMatrix.h
+*	IsingCell.h
+*	parser.h
+*	simulator.h
 
 In addition, if you wish to use the additional image functionality (for which you
 will need the Magick++ library) you will also need the file imageProcessing.cc
 
 If all these files are present, run any of the following to compile:
 
- *	make
- *	make complete
- *	make concise
+*	make
+*	make complete
+*	make concise
 
 The latter is the only option that does not require the Magick++ library. The
 first two are equivalent.
 
- ================================================================================
-/2. Instruction files								/
-================================================================================ 
+Instruction Files
+=================
 
- ================================================================================
-/2.a. Basic syntax								/
-================================================================================ 
+Basic Syntax
+------------
 
 The program, once compiled, takes as a parameter the name of a file. This file
 should contain instructions for the simulation(s) to be run, and should be
@@ -48,18 +47,17 @@ either one simulation, or a batch of simulations.
 
 Each line in the instruction file should have the following variables, in order:
 
- *	Exchange energy
- *	Field
- *	Temperature
- *	Initial layout
- *	Total time
+*	Exchange energy
+*	Field
+*	Temperature
+*	Initial layout
+*	Total time
 
 These should be delimited by semi-colons, for a total of 4 semi-colons per line.
 Whitespace can be inserted for your own convenience, as the parser will strip it.
 
- ================================================================================
-/2.b. Format of parameters							/
-================================================================================ 
+Format of Parameters
+--------------------
 
 Exchange energy should be a single value (one might as well use either +1 or -1,
 since the choice of units sets |J|=1 anyway)
@@ -92,9 +90,8 @@ Initial layout should either be:
 
 Total time should be a single integer - the number of timesteps to be evaluated.
 
- ================================================================================
-/2.c. Time-variation								/
-================================================================================ 
+Time Variation
+--------------
 
 Time-varying fields and temperature can also be handled:
 One should, rather than writing a single value or 3-tuple expressing a range,
@@ -117,9 +114,8 @@ If piecewise functions are desired (for example, a tophat function), one should
 simulate each piece in turn, using the final layout of one piece as the initial
 layout for the next.
 
- ================================================================================
-/3. Layout files								/
-================================================================================ 
+Layout Files
+============
 
 One can also use text files to pass in a specific layout. When using a text file
 to represent an initial layout, the following format should be followed.
@@ -147,9 +143,8 @@ If you wish to specify a repeating pattern of spins (for example, a checkerboard
 pattern), append a tilde ~ to the end of the repeating pattern.
 The given example of a checkerboard layout would be then: 10~ or 01~ (or similar)
 
- ================================================================================
-/4. Image functionality								/
-================================================================================ 
+Image Functionality
+===================
 
 If you choose to compile the complete version, having installed the Magick++
 library, then you will notice you can also import and export images. Importing

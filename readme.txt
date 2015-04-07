@@ -121,7 +121,8 @@ layout for the next.
 /3. Layout files								/
 ================================================================================ 
 
-One can also use text files to pass in a specific layout. When using a text file to represent an initial layout, the following format should be followed.
+One can also use text files to pass in a specific layout. When using a text file
+to represent an initial layout, the following format should be followed.
 
 Layout files should be headed with a single line, reading LAYOUT:<n>:<d>
 where <n> and <d> are the length and dimension of the Ising lattice. The colons

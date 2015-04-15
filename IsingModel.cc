@@ -5,8 +5,9 @@
 #include <fstream>
 #include "parser.h"
 
-
-
 int main(){
+	std::ofstream f2("IsingSummary.dat");
+	f2 << "t Jsign H T M(init) M(final) E \n";
+	f2.close();
 	instrxnParse(readfile("instructions.dat"));
 }

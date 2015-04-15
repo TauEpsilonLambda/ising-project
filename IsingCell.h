@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <gsl/gsl_rng.h>
+#include "extra.h"
 
 using std::vector;
 
@@ -38,10 +38,8 @@ public:
 	
 	void flip(double deltaE, double Temp)
 	{
-		gsl_rng* rng = gsl_rng_alloc( gsl_rng_default );
 		//RHS will be > 1 anyway if deltaE < 0, so we don't actually need to compare deltaE; remember in our units, kB=1
-		if (gsl_rng_uniform(rng) < exp(-deltaE/(Temp))){
-			Spin *= -1;
-		}
+		if (Temp==0){if(deltaE<0){Spin*=-1;}} //the ifs need to be nested, to prevent division by zero in the elseif
+		else if (gsl_rng_uniform(rng) < exp(-deltaE/(Temp))){Spin *= -1;}
 	}
 };

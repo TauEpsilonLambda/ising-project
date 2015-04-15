@@ -83,7 +83,7 @@ using std::size_t;
 			stripWS(data[1]);
 			vector<string> instrxn = explode(data[1],";");
 			double J = atof(instrxn[0].c_str());
-			vector<string> temp;
+			vector<string> temp; //temp for temporary, not temp for temperature
 			short int Htype;
 			switch((int) instrxn[1].at(0)){//switch requires ints for its cases; casting to an int gives the ascii value
 				case 83:	//s
@@ -170,7 +170,7 @@ using std::size_t;
 			runSimulation(J,Htype,H,Ttype,T,layout_type,layout,M,timesteps); //remember N and D are contained in layout.
 			
 			data.erase(data.begin()+1);//removes the line we just parsed
-			if(data.size()>1){         //if there IS a next line (remember we keep the header)...
+			if(data.size()>1){         //if there IS a next line (remember to keep the header)...
 				instrxnParse(data);    //... then we process that line! et cetera ad infinitum... or ad nauseam, which is probably more likely, or ad BSOD, which is yet more likely still
 			}
 			else{return;}

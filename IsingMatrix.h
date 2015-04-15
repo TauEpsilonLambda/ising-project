@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <gsl/gsl_rng.h>
 #include "IsingCell.h"
 
 using std::vector;
@@ -41,7 +40,6 @@ public:
 	{
 		N=n;
 		D=d;
-		gsl_rng* rng = gsl_rng_alloc( gsl_rng_default );
 		for(int i=0; i<power(n,d); i++){
 			short int s;
 			if(gsl_rng_uniform(rng)*2 < 1){s=1;}
@@ -56,7 +54,6 @@ public:
 	{
 		N=n;
 		D=d;
-		gsl_rng* rng = gsl_rng_alloc( gsl_rng_default );
 		for(int i=0; i<power(n,d); i++){
 			short int s;
 			if(gsl_rng_uniform(rng)*2 < M+1){s=1;}
@@ -113,15 +110,9 @@ public:
 		assignNeighbours();
 		return *this;
 	}
-	~IsingMatrix() {}
 	
 	//end of constructors
 	
-	//the pow function annoyingly only gives doubles. To avoid having to recast to ints, I made my own function. Requires positive exponent.
-	int power(int base, unsigned int exponent){
-		if (exponent==0){return 1;}
-		else {return base*power(base,exponent-1);}
-	}
 	
 	void assignNeighbours()
 	{
@@ -165,7 +156,6 @@ public:
 	void Timestep(bool Jsign, double H, double T, bool sel, bool flip)
 	{ //I incorporate H and T as parameters here to allow for time-varying fields/temperatures, for example; again, we can make it a vector if we want spatial variation too. Note our choice of units set |J|, kB, and mu_elec all equal to 1 - so energy is measured in |J|, temperature in |J|/kB, field in |J|/mu_elec.
 	//The bool Jsign governs whether or not to model antiferromagnetism (which requires J<0). TRUE corresponds to ferromagnetism (J>0).
-		gsl_rng* rng = gsl_rng_alloc( gsl_rng_default );
 		vector<double> deltaEnergies;
 		short int J=1;
 		if (!Jsign) {J*=-1;}
@@ -218,10 +208,10 @@ public:
 		for(unsigned int i=0; i<Cells.size(); i++){
 			sigmaE += - H * Cells[i].GetSpin();
 			for(unsigned int j=0; j<Cells[i].Neighbours.size(); j++){
-				sigmaE += - 1/2 * J * Cells[i].GetSpin() * Cells[Cells[i].Neighbours[j]].GetSpin();
+				sigmaE += - .5 * J * Cells[i].GetSpin() * Cells[Cells[i].Neighbours[j]].GetSpin();
 				//the 1/2 accounting for double counting, of course
 			}
 		}
-		return sigmaE;
+		return sigmaE/Cells.size();
 	}
 };

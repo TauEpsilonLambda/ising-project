@@ -1,11 +1,12 @@
- ================================================================================
-/					README					/
-================================================================================ 
+Ising Project
+=============
+
 This readme contains instructions for compiling my program, in addition to
 passing in instructions to the program via text files, and importing and
 exporting images via use of the Magick++ library, which I do not provide owing to
 its size. I do provide images of sample spin configurations for this reason.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /1 Getting started								/
 ================================================================================ 
@@ -18,6 +19,19 @@ Please check that the following files are present:
  *	simulator.h
  *	extra.h
  *	Makefile
+=======
+
+Getting Started
+===============
+
+Please check that the following files are present:
+
+*	IsingModel.cc
+*	IsingMatrix.h
+*	IsingCell.h
+*	parser.h
+*	simulator.h
+>>>>>>> origin/master:README.md
 
 In addition, if you wish to use the additional image functionality (for which you
 will need the Magick++ library) you will also need the file imageProcessing.cc
@@ -26,13 +40,20 @@ The core program requires GSL to run.
 
 If all these files are present, run any of the following to compile:
 
+<<<<<<< HEAD:readme.txt
  *	make
  *	make complete
  *	make core
+=======
+*	make
+*	make complete
+*	make concise
+>>>>>>> origin/master:README.md
 
 The latter is the only option that does not require the Magick++ library. The
 first two are equivalent.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /2 Instruction files								/
 ================================================================================ 
@@ -40,6 +61,13 @@ first two are equivalent.
  ================================================================================
 /2.a Basic syntax								/
 ================================================================================ 
+=======
+Instruction Files
+=================
+
+Basic Syntax
+------------
+>>>>>>> origin/master:README.md
 
 The program, once compiled, reads the file "instructions.dat". This file should
 contain instructions for the simulation(s) to be run, and should be present in
@@ -52,18 +80,23 @@ either one simulation, or a batch of simulations.
 
 Each line in the instruction file should have the following variables, in order:
 
- *	Exchange energy
- *	Field
- *	Temperature
- *	Initial layout
- *	Total time
+*	Exchange energy
+*	Field
+*	Temperature
+*	Initial layout
+*	Total time
 
 These should be delimited by semi-colons, for a total of 4 semi-colons per line.
 Whitespace can be inserted for your own convenience, as the parser will strip it.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /2.b Format of parameters							/
 ================================================================================ 
+=======
+Format of Parameters
+--------------------
+>>>>>>> origin/master:README.md
 
 Exchange energy should be a single value (one might as well use either +1 or -1,
 since the choice of units sets |J|=1 anyway)
@@ -110,9 +143,14 @@ cases are handled differently:
 	integers are treated the same as positive integers, since equilibrium
 	is meaningless when parameters are not constant.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /2.c Time-variation								/
 ================================================================================ 
+=======
+Time Variation
+--------------
+>>>>>>> origin/master:README.md
 
 Time-varying fields and temperature can also be handled:
 One should, rather than writing a single value or 3-tuple expressing a range,
@@ -136,11 +174,17 @@ If piecewise functions are desired (for example, a tophat function), one should
 simulate each piece in turn, using the final layout of one piece as the initial
 layout for the next.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /3 Layout files									/
 ================================================================================ 
+=======
+Layout Files
+============
+>>>>>>> origin/master:README.md
 
-One can also use text files to pass in a specific layout. When using a text file to represent an initial layout, the following format should be followed.
+One can also use text files to pass in a specific layout. When using a text file
+to represent an initial layout, the following format should be followed.
 
 Layout files should be headed with a single line, reading LAYOUT:<n>:<d>
 where <n> and <d> are the length and dimension of the Ising lattice. The colons
@@ -182,9 +226,14 @@ If you wish to keep these files, ensure you move them out of the program
 directory BEFORE running it again; otherwise, they stand at risk of being
 overwritten.
 
+<<<<<<< HEAD:readme.txt
  ================================================================================
 /5 Image functionality								/
 ================================================================================ 
+=======
+Image Functionality
+===================
+>>>>>>> origin/master:README.md
 
 If you choose to compile the complete version, having installed the Magick++
 library, then you will notice you can also import and export images. Importing

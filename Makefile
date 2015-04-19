@@ -4,9 +4,8 @@ LDFLAGS=-L/usr/local/lib
 OPT_LDFLAGS=`Magick++-config --cppflags --cxxflags --ldflags --libs`
 LINKS=-lgsl -lgslcblas -lm
 OPT_LINKS=`Magick++-config --ldflags --libs`
-SOURCES =IsingModel.cc
-OPT_SOURCES=imageProcessing.cc
-HEADERS =IsingMatrix.h IsingCell.h parser.h simulator.h extra.h
+SOURCES =IsingModel.cpp IsingMatrix.hpp IsingCell.hpp parser.hpp simulator.hpp extra.hpp
+OPT_SOURCES=imageProcessing.cpp
 EXECUTABLE =IsingModel
 
 complete: $(SOURCES) $(OPT_SOURCES) $(HEADERS)

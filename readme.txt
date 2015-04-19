@@ -69,11 +69,11 @@ Exchange energy should be a single value (one might as well use either +1 or -1,
 since the choice of units sets |J|=1 anyway)
 
 Field should either be a single value, or a 3-tuple written as:
-min:max:increment (but see ง1.c for time-varying fields)
+min:max:increment (but see ยง1.c for time-varying fields)
 The simulation will be run once for each field value defined by the tuple.
 
 Temperature should either be a single value, or a 3-tuple written as:
-min:max:increment (but see ง1.c for time-varying temperature)
+min:max:increment (but see ยง1.c for time-varying temperature)
 The simulation will be run once for each temperature value defined by the tuple.
 
 Note that if ranges are specified for both field and temperature, every
@@ -93,7 +93,7 @@ Initial layout should either be:
 		* if left blank it defaults to 0.5
 
 	* text file: t:filename.dat
-		* the procedure for importing layout files is discussed in ง3
+		* the procedure for importing layout files is discussed in ยง3
 
 Total time should be a single integer, which can be positive or negative; these
 cases are handled differently:
@@ -177,7 +177,7 @@ the magnetisation and energy, as well as the field, temperature, and initial
 magnetisation.
 
 Furthermore, the complete version of the program will export image files; these
-are discussed in ง5.
+are discussed in ยง5.
 
 If you wish to keep these files, ensure you move them out of the program
 directory BEFORE running it again; otherwise, they stand at risk of being
@@ -189,7 +189,7 @@ overwritten.
 
 If you choose to compile the complete version, having installed the Magick++
 library, then you will notice you can also import and export images. Importing
-images to pass in an initial layout is discussed in ง2.b.
+images to pass in an initial layout is discussed in ยง2.b.
 
 The program will automatically generate three images per simulation upon
 completion:

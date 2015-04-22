@@ -113,7 +113,7 @@ using std::size_t;
 					temp = explode(instrxn[3],":");
 					double threshold;
 					if (temp.size()==1){threshold=0.5;}
-					else {threshold=atoi(temp[1].c_str());}
+					else {threshold=atof(temp[1].c_str());}
 					layout = readImage(temp[0],threshold);//Can change 0.5 if you like depending on the white balance of your image or personal taste. After all, one man's black and blue is another's white and gold.
 					layout_type=1;
 					break;

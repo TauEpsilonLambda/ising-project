@@ -95,7 +95,7 @@ using std::ios;
 				
 				f<< "t H T M E ; J>=0 == "<<Jsign<<"\n";//more for my benefit, so I don't mix up columns.
 				#ifdef imageSuite
-					list<Image> frames;
+					list<Magick::Image> frames;
 				#endif
 				vector<double> M_over_t; //used to track magnetisation over time for purposes of determining whether equilibrium is reached
 				

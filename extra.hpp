@@ -2,6 +2,10 @@
 #include <vector>
 #include <string>
 
+#ifdef imageSuite
+#include "imageProcessing.hpp"
+#endif
+
 using std::vector;
 using std::string;
 using std::size_t;
